@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comercial Aurora · Mesa de atención</title>
+<style>
+:root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#202037;background:#f7f7fb;font-synthesis:none;--navy:#212039;--muted:#65637a;--purple:#5939bf;--purple-dark:#472b9e;--line:#e7e6ef;--soft:#f1ecff;--green:#1d684e;--red:#a7344a}
+*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button,a,input,select,textarea{outline-offset:3px}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.62}input,select,textarea{min-width:0;color:var(--navy);background:#fff;border:1px solid #dcd9e8;border-radius:9px;padding:.65rem .75rem}input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid #805fec}input[aria-invalid="true"],select[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--red)}textarea{resize:vertical}button{border:1px solid var(--line);border-radius:9px;background:white;color:var(--navy);padding:.62rem .9rem;font-weight:650}button:hover{background:#f4f1fc}button.primary{background:var(--purple);color:white;border-color:var(--purple);box-shadow:0 3px 6px #5939bf29}button.primary:hover{background:var(--purple-dark)}[hidden]{display:none!important}.muted{color:var(--muted)}.small{font-size:.85rem}.field-error,.error{color:var(--red);font-size:.89rem;margin:.2rem 0}.notice{color:#804017;background:#fff1e2;border:1px solid #f6d5b9;border-radius:9px;padding:.7rem .9rem}.toast{position:fixed;z-index:3;bottom:1.15rem;right:1.15rem;max-width:min(92vw,440px);padding:.85rem 1rem;background:#262242;color:#fff;border-radius:10px;box-shadow:0 12px 30px #24204236}.brand{display:flex;gap:.75rem;align-items:center;font-weight:790;letter-spacing:-.035em}.brand small{display:block;margin-top:.12rem;font-weight:530;letter-spacing:0;color:var(--muted);font-size:.71rem}.brand-mark{display:grid;place-items:center;width:2.35rem;height:2.35rem;background:#6847d3;border-radius:11px;color:white;font-size:1.48rem;line-height:1}.login-shell{min-height:100dvh;display:grid;grid-template-columns:1fr 1fr}.login-intro{position:relative;overflow:hidden;min-height:100%;padding:clamp(2rem,7vw,7rem);background:linear-gradient(145deg,#211746,#43298d 66%,#6c4bda);color:white;display:flex;flex-direction:column;justify-content:center;isolation:isolate}.login-intro::before,.login-intro::after{content:"";position:absolute;border:1px solid #ffffff36;border-radius:50%;width:750px;height:750px;left:43%;top:45%;z-index:-1}.login-intro::after{width:560px;height:560px;left:53%;top:53%}.login-intro .brand small{color:#ddd2ff}.login-intro h1{font-size:clamp(2.55rem,5vw,5rem);max-width:12ch;letter-spacing:-.07em;line-height:1.02;margin:3rem 0 1rem}.login-intro p{max-width:34ch;color:#e9dfff;font-size:1.08rem;line-height:1.65}.login-main{padding:2rem;display:grid;place-items:center}.login-card{width:min(100%,390px);display:grid;gap:1rem}.login-card h2{font-size:1.9rem;margin:0;letter-spacing:-.045em}.login-card p{margin:0}.login-card form,label,.field{display:grid;gap:.42rem}.login-card form{gap:1rem}.login-card label,.field{font-weight:660;font-size:.87rem}.login-card form button{margin-top:.35rem}.file-config{padding:.85rem;background:#efecfa;border-radius:10px;display:grid;gap:.55rem}.demo-actions{display:grid;gap:.5rem;text-align:center}
+.top{height:72px;border-bottom:1px solid var(--line);background:white;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 max(1.25rem,calc((100vw - 1330px)/2))}.top-actions{display:flex;align-items:center;gap:.8rem}.identity{display:flex;gap:.65rem;align-items:center}.identity b{font-size:.87rem}.identity small{display:block;color:var(--muted);font-size:.72rem}.avatar{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--soft);color:var(--purple);font-size:.77rem;font-weight:800}.workspace{width:min(calc(100% - 3rem),1280px);margin:0 auto;padding:1.4rem 0 3rem}.views{display:flex;gap:.4rem;margin-bottom:1.3rem}.views button{border:0;background:transparent;color:var(--muted);padding:.53rem .78rem;font-size:.85rem}.views button[aria-selected="true"]{color:var(--purple-dark);background:#ede7fc}.hero{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.7rem 2rem;background:linear-gradient(112deg,#272044,#5637ad 92%);color:white;border-radius:16px;position:relative;overflow:hidden;isolation:isolate}.hero::before,.hero::after{content:"";position:absolute;z-index:-1;width:350px;height:350px;border:1px solid #ffffff27;border-radius:50%;right:-65px;top:-105px}.hero::after{right:-22px;top:-77px}.hero h1{margin:0 0 .4rem;font-size:clamp(1.65rem,3vw,2.62rem);letter-spacing:-.055em;line-height:1.08}.hero p{color:#ede3ff;margin:0;font-size:.92rem}.hero .primary{background:white;color:#472b9e;border-color:white;white-space:nowrap}.hero .primary:hover{background:#efe7ff}
+.stats{margin:1.25rem 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.85rem}.stat{background:white;border:1px solid var(--line);border-radius:13px;padding:1rem 1.05rem;display:grid;grid-template-columns:auto 1fr;gap:.7rem;align-items:start}.stat-icon{border-radius:9px;background:#efeaff;color:#5c3cb7;display:grid;place-items:center;font-size:1.1rem;width:2rem;height:2rem;font-weight:800}.stat:nth-child(2) .stat-icon{background:#eaf2ff;color:#3158a0}.stat:nth-child(3) .stat-icon{background:#fae9ed;color:#a7344a}.stat:nth-child(4) .stat-icon{background:#e2f5ed;color:#21704f}.stat-label{font-size:.78rem;color:var(--muted);font-weight:650}.stat strong{display:block;line-height:1.13;font-size:1.65rem;letter-spacing:-.045em;margin-top:.23rem}
+.panel{background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden}.panel-head{display:flex;justify-content:space-between;gap:1rem;padding:1.1rem 1.15rem;align-items:center}.panel-head h2,.file-panel h2{font-size:1.15rem;letter-spacing:-.02em;margin:0 0 .26rem}.panel-head p,.file-panel p{margin:0}.filters{display:flex;gap:.55rem;flex-wrap:wrap;padding:0 1.15rem 1rem}.filters input{flex:1;min-width:min(220px,100%)}.filters select{flex:0 1 auto;max-width:100%}.filters input,.filters select{font-size:.85rem}.table-scroll{overflow:auto}table{border-collapse:collapse;width:100%;white-space:nowrap;text-align:left;font-size:.83rem}th{background:#f5f4f9;color:#5f5c75;font-weight:690}th,td{padding:.76rem .75rem;border-bottom:1px solid #efedf4}th:first-child,td:first-child{padding-left:1.15rem}th:last-child,td:last-child{padding-right:1.15rem}tbody tr:hover{background:#fbf9ff}.ticket-link{border:0;padding:.18rem .15rem;background:transparent;color:#4e32aa;font-size:.83rem}.cell-customer{max-width:245px;overflow:hidden;text-overflow:ellipsis}.badge{display:inline-block;border-radius:20px;font-size:.72rem;font-weight:720;background:#efedf6;color:#564e71;padding:.25rem .53rem}.badge.nuevo{background:#eee8fe;color:#5336a4}.badge.en-proceso{background:#e7f0ff;color:#315287}.badge.pendiente{background:#fff1d8;color:#805b20}.badge.resuelto{background:#e4f4e9;color:#2b664c}.badge.vencido{background:#fbe8ec;color:#963044}.table-foot{padding:.7rem 1.15rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem;color:var(--muted);font-size:.8rem}.pager{display:flex;gap:.4rem;align-items:center}.pager button{padding:.32rem .55rem}.connect{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--green);white-space:nowrap}.connect::before{content:"";width:.52rem;height:.52rem;background:currentColor;border-radius:50%;box-shadow:0 0 0 3px #44b28824}.connect.off{color:#a45824}.file-grid{display:grid;gap:1rem;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:1rem}.file-panel{padding:1.15rem;display:grid;gap:.8rem;align-content:start}.file-panel form{display:grid;gap:.7rem}.file-panel button{justify-self:start}.report-controls{display:flex;align-items:end;flex-wrap:wrap;gap:.85rem;margin:1rem 0}.report-controls label{display:grid;gap:.35rem}
+dialog{width:min(620px,calc(100% - 2rem));max-height:calc(100dvh - 2rem);border:0;border-radius:16px;color:var(--navy);padding:0;box-shadow:0 20px 90px #231a4c4a}dialog::backdrop{background:#231b4075}.dialog-body{padding:1.3rem}.dialog-head{display:flex;justify-content:space-between;align-items:start;gap:.8rem;margin-bottom:1rem}.dialog-head h2{margin:0;letter-spacing:-.035em}.dialog-head p{margin:.25rem 0 0}.dialog-head button{padding:.3rem .6rem}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.span{grid-column:1/-1}.dialog-actions{display:flex;gap:.55rem;justify-content:flex-end;margin-top:1rem}.customer-options{display:grid;gap:.2rem;max-height:140px;overflow:auto}.customer-options:empty{display:none}.customer-options button{text-align:left;padding:.4rem .55rem;font-size:.83rem}.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem 1rem;margin:0 0 1rem}.detail-grid div{min-width:0}.detail-grid dt{font-size:.77rem;color:var(--muted)}.detail-grid dd{margin:.2rem 0 0;overflow-wrap:anywhere}.ticket-description{white-space:pre-wrap;overflow-wrap:anywhere;background:#f6f4fb;border-radius:10px;padding:.8rem;margin:0 0 1rem;font-size:.87rem}.edit-box{border-block:1px solid var(--line);padding:.85rem 0;display:grid;gap:.75rem}.history{margin:.65rem 0 0;padding:0 0 0 1rem}.history li{margin:0 0 .7rem;font-size:.85rem;overflow-wrap:anywhere}.history li::marker{color:var(--purple)}.detail-badges{display:flex;gap:.35rem;flex-wrap:wrap}.inline-status{font-size:.85rem;color:var(--green)}
+@media(max-width:820px){.workspace{width:calc(100% - 2rem)}.top{padding:0 1rem}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.login-intro{padding:2.2rem}.login-intro h1{margin-top:2rem}}
+@media(max-width:580px){.login-shell{grid-template-columns:1fr}.login-intro{min-height:205px;padding:1.5rem}.login-intro h1{font-size:2.15rem;margin:1.2rem 0 .45rem}.login-intro p{margin:0;font-size:.9rem}.login-main{padding:1.4rem 1.15rem}.hero{padding:1.15rem;flex-wrap:wrap}.hero p{font-size:.82rem}.top{height:64px}.top-actions{gap:.4rem}.identity>div:last-child{display:none}.top .brand small{display:none}.connect{font-size:.73rem}.file-grid,.form-grid{grid-template-columns:1fr}.filters input{flex-basis:100%}.filters select{flex:1}.panel-head{align-items:flex-start}.table-foot{padding:.7rem}.stat{padding:.75rem;gap:.5rem}.stat strong{font-size:1.35rem}}
+</style>
+</head>
+<body>
+<section id="loginScreen" class="login-shell">
+  <div class="login-intro">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">✦</span><div>Comercial Aurora<small>Operaciones</small></div></div>
+    <h1>Mesa de atención</h1>
+    <p>Registra solicitudes, coordina su atención y consulta el historial de cada cliente.</p>
+  </div>
+  <div class="login-main">
+    <div class="login-card">
+      <h2>Iniciar sesión</h2>
+      <p class="muted">Usa tu cuenta de Comercial Aurora.</p>
+      <div id="fileConfig" class="file-config" hidden>
+        <label for="endpoint">URL del servicio HTTPS</label>
+        <input id="endpoint" type="url" placeholder="https://aurora.ejemplo.co">
+        <button id="connectEndpoint" type="button">Conectar</button>
+      </div>
+      <form id="loginForm">
+        <label>Usuario<input id="loginId" name="id" required maxlength="40" autocomplete="username"></label>
+        <label>Contraseña<input id="loginPassword" name="password" type="password" required maxlength="256" autocomplete="current-password"></label>
+        <p id="loginError" class="error" role="alert"></p>
+        <button class="primary" type="submit">Entrar</button>
+      </form>
+      <div id="demoActions" class="demo-actions" hidden>
+        <button id="demoLogin" type="button">Entrar a la demostración</button>
+        <p class="small muted">Datos ficticios · Acceso de coordinación</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="workspaceScreen" hidden>
+  <header class="top">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">✦</span><div>Comercial Aurora<small>Mesa de atención</small></div></div>
+    <div class="top-actions">
+      <span id="connection" class="connect off" role="status">Conectando</span>
+      <div class="identity"><span id="avatar" class="avatar" aria-hidden="true"></span><div><b id="userName"></b><small id="userRole"></small></div></div>
+      <button id="logout" type="button" class="small">Salir</button>
+    </div>
+  </header>
+  <main class="workspace">
+    <nav id="views" class="views" aria-label="Secciones">
+      <button type="button" data-view="inbox" aria-selected="true">Bandeja</button>
+      <button type="button" data-view="report" aria-selected="false" data-coordinator>Indicadores</button>
+      <button type="button" data-view="files" aria-selected="false" data-coordinator>Archivos</button>
+    </nav>
+    <div id="staleNotice" class="notice" role="status" hidden>La vista puede estar desactualizada. Los borradores se conservan al reconectar.</div>
+    <section id="inbox">
+      <div class="hero"><div><h1>Solicitudes de clientes</h1><p>Consulta la bandeja y sigue el plazo de atención de 48 horas.</p></div><button id="newTicket" class="primary" type="button">＋ Radicar solicitud</button></div>
+      <div class="stats" aria-label="Resumen de solicitudes">
+        <div class="stat"><span class="stat-icon" aria-hidden="true">▤</span><div><span class="stat-label">Total de solicitudes</span><strong id="totalCount">—</strong></div></div>
+        <div class="stat"><span class="stat-icon" aria-hidden="true">◷</span><div><span class="stat-label">Abiertas en plazo</span><strong id="activeCount">—</strong></div></div>
+        <div class="stat"><span class="stat-icon" aria-hidden="true">!</span><div><span class="stat-label">Abiertas vencidas</span><strong id="overdueCount">—</strong></div></div>
+        <div class="stat"><span class="stat-icon" aria-hidden="true">✓</span><div><span class="stat-label">Resueltas o cerradas</span><strong id="resolvedCount">—</strong></div></div>
+      </div>
+      <section class="panel" aria-labelledby="listHeading">
+        <div class="panel-head"><div><h2 id="listHeading">Bandeja de solicitudes</h2><p class="muted small" id="resultCount"></p></div></div>
+        <div class="filters"><input id="search" type="search" aria-label="Buscar radicado o cliente" placeholder="Buscar por radicado, NIT o cliente"><select id="statusFilter" aria-label="Estado"></select><select id="agentFilter" aria-label="Responsable"></select></div>
+        <div class="table-scroll"><table><thead><tr><th scope="col">Radicado</th><th scope="col">Cliente</th><th scope="col">Estado</th><th scope="col">Responsable</th><th scope="col">Vencimiento</th></tr></thead><tbody id="rows"></tbody></table></div>
+        <div class="table-foot"><span id="range"></span><div class="pager"><button id="previous" type="button" aria-label="Página anterior">‹</button><span id="pageNumber"></span><button id="next" type="button" aria-label="Página siguiente">›</button></div></div>
+      </section>
+    </section>
+    <section id="report" hidden>
+      <div class="hero"><div><h1>Indicadores</h1><p>Cumplimiento del plazo de atención por fecha de resolución.</p></div></div>
+      <div class="report-controls"><label>Desde<input id="reportFrom" type="date"></label><label>Hasta<input id="reportTo" type="date"></label></div>
+      <section class="panel file-panel"><h2>Resolución en 48 horas</h2><p id="reportResult" role="status"></p><p id="reportBasis" class="muted small"></p></section>
+    </section>
+    <section id="files" hidden>
+      <div class="hero"><div><h1>Archivos de trabajo</h1><p>Gestiona el directorio de clientes y los respaldos del piloto.</p></div></div>
+      <div class="file-grid">
+        <section class="panel file-panel"><h2>Importar clientes</h2><p class="muted small">CSV o JSON con NIT y razón social. Los NIT existentes se actualizan.</p><form id="importForm"><label>Directorio de clientes<input id="clientFile" type="file" accept=".csv,.json" required></label><button class="primary">Importar clientes</button></form><p id="importResult" role="status"></p></section>
+        <section class="panel file-panel"><h2>Respaldo de solicitudes</h2><p class="muted small">El archivo incluye clientes, solicitudes e historial.</p><button id="exportBackup" type="button">Descargar respaldo JSON</button><form id="restoreForm"><label>Restaurar un respaldo<input id="restoreFile" type="file" accept=".json" required></label><button class="primary">Revisar restauración</button></form><p id="backupResult" role="status"></p></section>
+      </div>
+    </section>
+  </main>
+</div>
+<dialog id="createDialog" aria-labelledby="createHeading"><div class="dialog-body">
+  <div class="dialog-head"><div><h2 id="createHeading">Radicar solicitud</h2><p class="muted small">El responsable se asigna por turno.</p></div><button type="button" data-close="createDialog" aria-label="Cerrar formulario">×</button></div>
+  <form id="createForm"><div class="form-grid">
+    <div class="span field"><label for="customerQuery">Cliente</label><input id="customerQuery" name="nit" autocomplete="off" placeholder="Escribe el NIT o la razón social" required aria-describedby="customerError"><div id="customerOptions" class="customer-options" aria-label="Resultados de clientes"></div><p id="customerError" data-field="nit" class="field-error" hidden></p></div>
+    <label class="field">Canal de recepción<select name="channel" required></select><span class="field-error" data-field="channel" hidden></span></label>
+    <label class="field">Categoría<select name="category" required></select><span class="field-error" data-field="category" hidden></span></label>
+    <label class="field span">Descripción<textarea name="description" rows="4" required minlength="10" maxlength="4000"></textarea><span class="field-error" data-field="description" hidden></span></label>
+    <label class="field span">Referencia del pedido <span class="muted small">Opcional</span><input name="order" maxlength="120"><span class="field-error" data-field="order" hidden></span></label>
+  </div><p id="createError" class="error" role="alert"></p><div class="dialog-actions"><button type="button" data-close="createDialog">Volver</button><button class="primary">Guardar radicación</button></div></form>
+</div></dialog>
+<dialog id="detailDialog" aria-labelledby="detailHeading"><div class="dialog-body">
+  <div class="dialog-head"><div><h2 id="detailHeading">Solicitud</h2><p id="detailCustomer" class="muted small"></p></div><button type="button" data-close="detailDialog" aria-label="Cerrar detalle">×</button></div>
+  <div id="detailContent"></div>
+  <p id="editNotice" class="notice" role="status" hidden></p>
+  <form id="editForm" class="edit-box" hidden><div class="form-grid">
+    <label class="field">Acción<select id="editAction" name="action"><option value="status">Cambiar estado</option><option value="assign">Reasignar</option></select></label>
+    <label id="editStatusField" class="field">Nuevo estado<select id="editStatus" name="status"></select></label>
+    <label id="editAssigneeField" class="field" hidden>Nuevo responsable<select id="editAssignee" name="assignee"></select></label>
+    <label class="field span"><span id="commentLabel">Comentario</span><textarea id="editComment" name="comment" rows="2" maxlength="4000"></textarea></label>
+  </div><p id="editError" class="error" role="alert"></p><div class="dialog-actions"><button id="acceptVersion" type="button" hidden>Usar versión vigente</button><button id="saveEdit" class="primary">Guardar cambio</button></div></form>
+  <h3>Historial de atención</h3><ol id="history" class="history"></ol>
+</div></dialog>
+<div id="toast" class="toast" role="status" hidden></div>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const ui = { token:'', user:null, data:null, endpoint:location.protocol === 'file:' ? '' : location.origin, view:'inbox', page:1, active:null, version:null, demoPassword:'', offset:0, online:false };
+const FILE_SERVICE = ''; // Configura aquí la URL HTTPS al distribuir una copia descargable.
+const pageSize = 10;
+const formatDate = new Intl.DateTimeFormat('es-CO',{dateStyle:'medium',timeStyle:'short',timeZone:'America/Bogota'});
+const formatDay = new Intl.DateTimeFormat('en-CA',{year:'numeric',month:'2-digit',day:'2-digit',timeZone:'America/Bogota'});
+const number = new Intl.NumberFormat('es-CO');
+let syncController, toastTimer, chosenCustomer, creationKey, creationPayload, refreshTimer;
+function element(tag, text, css) {
+  const item = document.createElement(tag);
+  if (text !== undefined) item.textContent = text;
+  if (css) item.className = css;
+  return item;
+}
+function showToast(message) {
+  clearTimeout(toastTimer);
+  $('toast').textContent = message;
+  $('toast').hidden = false;
+  toastTimer = setTimeout(() => { $('toast').hidden = true; }, 4300);
+}
+async function api(path, options = {}) {
+  if (!ui.endpoint) throw Error('Configura la URL del servicio.');
+  const headers = new Headers(options.headers);
+  if (ui.token) headers.set('Authorization','Bearer ' + ui.token);
+  if (options.data) headers.set('Content-Type','application/json');
+  const response = await fetch(ui.endpoint + '/api/' + path, {...options, headers, credentials:'omit', body: options.data ? JSON.stringify(options.data) : undefined});
+  const value = await response.json();
+  if (!response.ok) throw Object.assign(new Error(value.error || 'Error del servicio.'), { status:response.status, value });
+  return value;
+}
+function date(value) { return formatDate.format(new Date(value)); }
+function day(value) { return formatDay.format(new Date(value)); }
+function normalized(value) { return value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+function open(ticket) { return !ticket.resolvedAt; }
+function overdue(ticket) { return open(ticket) && Date.now() + ui.offset > Date.parse(ticket.dueAt); }
+function agentName(id) { return ui.data.users.find(user => user.id === id)?.name || id; }
+function badgeFor(status) {
+  const style = status.startsWith('Pendiente') ? 'pendiente' : normalized(status).replaceAll(' ','-');
+  return element('span',status,'badge ' + style);
+}
+function fillOptions(select, items, placeholder) {
+  const previous = select.value;
+  select.replaceChildren(...(placeholder ? [new Option(placeholder,'')] : []), ...items.map(item => typeof item === 'string' ? new Option(item,item) : new Option(item.name,item.id)));
+  if ([...select.options].some(option => option.value === previous)) select.value = previous;
+}
+function connection(value) {
+  ui.online = value;
+  $('connection').textContent = value ? 'En línea' : 'Reconectando';
+  $('connection').classList.toggle('off',!value);
+  $('staleNotice').hidden = value;
+}
+async function refresh(signal) {
+  const token = ui.token;
+  const snapshot = await api('state',{signal});
+  if (signal?.aborted || !token || token !== ui.token || snapshot.revision < (ui.data?.revision ?? -1)) return;
+  ui.data = snapshot;
+  ui.offset = Date.parse(snapshot.now) - Date.now();
+  fillOptions($('statusFilter'),Object.keys(snapshot.transitions),'Todos los estados');
+  fillOptions($('agentFilter'),snapshot.users.filter(user => user.role === 'agente'),'Todos los responsables');
+  renderInbox();
+  if (ui.view === 'report') renderReport();
+  if ($('detailDialog').open) renderDetail();
+  if ($('createDialog').open && !chosenCustomer) customerResults();
+}
+async function synchronize(signal) {
+  while (!signal.aborted) {
+    try {
+      const response = await fetch(ui.endpoint + '/api/events',{signal,credentials:'omit',headers:{Authorization:'Bearer ' + ui.token}});
+      if (response.status === 401) { signOut('Tu sesión venció. Vuelve a iniciar sesión.'); return; }
+      if (!response.ok || !response.body) throw Error('No se puede conectar al flujo.');
+      const reader = response.body.pipeThrough(new TextDecoderStream()).getReader();
+      try {
+        await refresh(signal);
+        connection(true);
+        let buffer = '';
+        while (!signal.aborted) {
+          const {value,done} = await reader.read();
+          if (done) break;
+          buffer += value;
+          const frames = buffer.split('\n\n');
+          buffer = frames.pop();
+          const revisions = frames.filter(frame => frame.startsWith('data: ')).map(frame => JSON.parse(frame.slice(6)).revision);
+          if (revisions.some(revision => revision > (ui.data?.revision ?? -1))) await refresh(signal);
+        }
+      } finally { await reader.cancel().catch(() => {}); }
+    } catch (error) {
+      if (signal.aborted) return;
+      if (error.status === 401) { signOut('Tu sesión venció. Vuelve a iniciar sesión.'); return; }
+    }
+    if (signal.aborted) return;
+    connection(false);
+    await new Promise(resolve => setTimeout(resolve,1000));
+  }
+}
+async function loadMeta() {
+  $('demoActions').hidden = true;
+  ui.demoPassword = '';
+  if (!ui.endpoint) return;
+  try {
+    const meta = await api('meta');
+    if (meta.demonstration) {
+      ui.demoPassword = meta.demoPassword;
+      $('demoActions').hidden = false;
+    }
+  } catch { $('loginError').textContent = 'El servicio no está disponible en esta dirección.'; }
+}
+async function connectEndpoint() {
+  try {
+    const url = new URL($('endpoint').value.trim());
+    if (url.protocol !== 'https:' || url.username || url.password || url.pathname !== '/' || url.search || url.hash) throw Error();
+    ui.endpoint = url.origin;
+    $('loginError').textContent = '';
+    await loadMeta();
+  } catch { $('loginError').textContent = 'Ingresa la dirección principal del servicio en HTTPS.'; }
+}
+async function signIn(id,password) {
+  $('loginError').textContent = '';
+  const buttons = [...$('loginScreen').querySelectorAll('button')];
+  buttons.forEach(button => { button.disabled = true; });
+  try {
+    if (!ui.endpoint && location.protocol === 'file:') await connectEndpoint();
+    const result = await api('login',{method:'POST',data:{id,password}});
+    ui.token = result.token;
+    ui.user = result.user;
+    $('loginPassword').value = '';
+    $('loginScreen').hidden = true;
+    $('workspaceScreen').hidden = false;
+    $('userName').textContent = ui.user.name;
+    $('avatar').textContent = ui.user.name.split(' ').slice(0,2).map(word => word[0]).join('');
+    $('userRole').textContent = ui.user.role === 'coordinador' ? 'Coordinación' : 'Agente';
+    document.querySelectorAll('[data-coordinator]').forEach(item => { item.hidden = ui.user.role !== 'coordinador'; });
+    switchView('inbox');
+    $('reportFrom').value = day(Date.now()).slice(0,7) + '-01';
+    $('reportTo').value = day(Date.now());
+    syncController = new AbortController();
+    connection(false);
+    synchronize(syncController.signal);
+    refreshTimer = setInterval(() => { if(ui.data) renderInbox(); },15000);
+  } catch (error) {
+    $('loginError').textContent = error.status ? error.message : 'No se pudo conectar con el servicio. Revisa la dirección y tu conexión.';
+  } finally { buttons.forEach(button => { button.disabled = false; }); }
+}
+function signOut(message='') {
+  syncController?.abort();
+  clearInterval(refreshTimer);
+  ui.token = ''; ui.user = null; ui.data = null; ui.active = null; ui.version = null; ui.page = 1;
+  chosenCustomer = null; creationKey = null; creationPayload = null;
+  ['createDialog','detailDialog'].forEach(id => $(id).close());
+  $('createForm').reset(); $('editForm').reset(); $('importForm').reset(); $('restoreForm').reset();
+  $('rows').replaceChildren(); $('history').replaceChildren(); $('detailContent').replaceChildren(); $('search').value = '';
+  $('workspaceScreen').hidden = true; $('loginScreen').hidden = false; $('loginError').textContent = message;
+}
+function switchView(view) {
+  ui.view = view;
+  for (const id of ['inbox','report','files']) $(id).hidden = id !== view;
+  $('views').querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-selected',String(button.dataset.view === view)));
+  if (view === 'report' && ui.data) renderReport();
+}
+function renderInbox() {
+  const tickets = ui.data.tickets;
+  const active = tickets.filter(open);
+  const late = active.filter(overdue).length;
+  $('totalCount').textContent = number.format(tickets.length);
+  $('activeCount').textContent = number.format(active.length - late);
+  $('overdueCount').textContent = number.format(late);
+  $('resolvedCount').textContent = number.format(tickets.length - active.length);
+  const term = normalized($('search').value.trim());
+  const status = $('statusFilter').value, agent = $('agentFilter').value;
+  const filtered = tickets.filter(ticket => (!status || ticket.status === status) && (!agent || ticket.assignee === agent) &&
+    (!term || normalized(ticket.id + ' ' + ticket.nit + ' ' + ticket.customer).includes(term)));
+  const pages = Math.max(1,Math.ceil(filtered.length / pageSize));
+  ui.page = Math.min(ui.page,pages);
+  const start = (ui.page - 1) * pageSize;
+  $('resultCount').textContent = number.format(filtered.length) + (filtered.length === 1 ? ' resultado' : ' resultados');
+  $('range').textContent = filtered.length ? (start + 1) + '–' + Math.min(start + pageSize,filtered.length) + ' de ' + number.format(filtered.length) : 'Sin solicitudes para los filtros actuales';
+  $('pageNumber').textContent = ui.page + ' / ' + pages;
+  $('previous').disabled = ui.page <= 1;
+  $('next').disabled = ui.page >= pages;
+  const fragment = document.createDocumentFragment();
+  for (const ticket of filtered.slice(start,start + pageSize)) {
+    const row = element('tr');
+    const link = element('button',ticket.id,'ticket-link');
+    link.type = 'button'; link.dataset.ticket = ticket.id;
+    const id = element('td'); id.append(link);
+    const customer = element('td',ticket.customer,'cell-customer'); customer.title = ticket.customer;
+    const state = element('td'); state.append(badgeFor(ticket.status));
+    const due = element('td');
+    due.append(overdue(ticket) ? element('span','Vencida','badge vencido') : document.createTextNode(date(ticket.dueAt)));
+    if (overdue(ticket)) due.title = date(ticket.dueAt);
+    row.append(id,customer,state,element('td',agentName(ticket.assignee)),due);
+    fragment.append(row);
+  }
+  const focusId = document.activeElement?.dataset.ticket;
+  $('rows').replaceChildren(fragment);
+  if (focusId) $('rows').querySelector('[data-ticket="' + focusId + '"]')?.focus({preventScroll:true});
+}
+function renderReport() {
+  const from = $('reportFrom').value, to = $('reportTo').value;
+  if (from && to && from > to) { $('reportResult').textContent = 'La fecha inicial debe ser anterior o igual a la final.'; $('reportBasis').textContent = ''; return; }
+  const resolved = ui.data.tickets.filter(ticket => ticket.resolvedAt && (!from || day(ticket.resolvedAt) >= from) && (!to || day(ticket.resolvedAt) <= to));
+  const compliant = resolved.filter(ticket => ticket.withinSla).length;
+  $('reportResult').textContent = resolved.length ? new Intl.NumberFormat('es-CO',{style:'percent',maximumFractionDigits:1}).format(compliant / resolved.length) + ' dentro del plazo' : 'Sin resoluciones';
+  $('reportBasis').textContent = resolved.length ? compliant + ' de ' + resolved.length + ' resueltas dentro de 48 horas.' : '';
+}
+function customerResults() {
+  const query = normalized($('customerQuery').value.trim());
+  const result = query ? ui.data.customers.filter(customer => normalized(customer.nit + ' ' + customer.name).includes(query)).slice(0,8) : [];
+  $('customerOptions').replaceChildren(...result.map(customer => {
+    const button = element('button',customer.name + ' · ' + customer.nit);
+    button.type = 'button';
+    button.addEventListener('click',() => {
+      chosenCustomer = customer;
+      $('customerQuery').value = customer.name + ' · ' + customer.nit;
+      $('customerOptions').replaceChildren();
+      $('createForm').elements.channel.focus();
+    });
+    return button;
+  }));
+}
+function fieldErrors(errors={}) {
+  $('createForm').querySelectorAll('[data-field]').forEach(item => {
+    const message = errors[item.dataset.field];
+    item.textContent = message || '';
+    item.hidden = !message;
+    const input = $('createForm').elements[item.dataset.field];
+    if (message) input.setAttribute('aria-invalid','true'); else input.removeAttribute('aria-invalid');
+  });
+}
+async function submitCreate(event) {
+  event.preventDefault();
+  fieldErrors();
+  $('createError').textContent = '';
+  const input = Object.fromEntries(new FormData(event.currentTarget));
+  input.nit = chosenCustomer?.nit || input.nit.trim();
+  if (creationPayload !== JSON.stringify(input)) {
+    creationPayload = JSON.stringify(input);
+    creationKey = crypto.randomUUID();
+  }
+  const button = event.currentTarget.querySelector('[type="submit"],button.primary');
+  button.disabled = true;
+  let ticket;
+  try {
+    ({ticket} = await api('tickets',{method:'POST',headers:{'Idempotency-Key':creationKey},data:input}));
+  } catch (error) {
+    fieldErrors(error.value?.fields);
+    $('createError').textContent = error.status ? error.message : 'No se confirmó la radicación. Puedes reintentar con los mismos datos.';
+  } finally { button.disabled = false; }
+  if (!ticket || !ui.user) return;
+  event.target.reset(); chosenCustomer = null; creationKey = null; creationPayload = null;
+  $('createDialog').close();
+  showToast('Solicitud ' + ticket.id + ' radicada. Responsable: ' + agentName(ticket.assignee) + '.');
+  $('search').value = ticket.id; $('statusFilter').value = ''; $('agentFilter').value = ''; ui.page = 1;
+  await refresh().catch(() => connection(false));
+}
+function findTicket() { return ui.data.tickets.find(ticket => ticket.id === ui.active); }
+function openDetail(id) {
+  ui.active = id;
+  const ticket = findTicket();
+  if (!ticket) return;
+  ui.version = ticket.version;
+  $('editForm').reset();
+  $('editError').textContent = '';
+  $('detailDialog').showModal();
+  renderDetail();
+}
+function renderDetail() {
+  const ticket = findTicket();
+  const old = ui.version !== ticket?.version;
+  $('detailHeading').textContent = ui.active;
+  $('editNotice').hidden = !old;
+  $('editNotice').textContent = ticket ? 'La solicitud cambió. Revisa los datos vigentes. Tu borrador se conserva.' : 'La solicitud ya no está disponible. Tu borrador se conserva hasta cerrar el detalle.';
+  if (!ticket) {
+    $('detailCustomer').textContent = '';
+    $('detailContent').replaceChildren();
+    $('history').replaceChildren();
+    $('saveEdit').disabled = true;
+    $('acceptVersion').hidden = true;
+    return;
+  }
+  $('detailCustomer').textContent = ticket.customer + ' · NIT ' + ticket.nit;
+  const info = element('dl',undefined,'detail-grid');
+  const pairs = [['Estado',ticket.status],['Responsable',agentName(ticket.assignee)],['Recepción',date(ticket.receivedAt)],['Vencimiento',date(ticket.dueAt)],
+    ['Canal',ticket.channel],['Categoría',ticket.category],['Pedido',ticket.order || 'Sin referencia'],['Plazo',ticket.resolvedAt ? (ticket.withinSla ? 'Resuelto a tiempo' : 'Resuelto fuera de plazo') : (overdue(ticket) ? 'Vencida' : 'En plazo')]];
+  if (ticket.resolvedAt) pairs.push(['Resolución',date(ticket.resolvedAt)],['Tiempo de atención',number.format(Math.round(ticket.elapsedHours * 100) / 100) + ' h']);
+  for (const [label,value] of pairs) { const part = element('div'); part.append(element('dt',label),element('dd',value)); info.append(part); }
+  const notes = [element('p',ticket.description,'ticket-description')];
+  if (ticket.response) notes.push(element('p','Respuesta: ' + ticket.response,'ticket-description'));
+  $('detailContent').replaceChildren(info,...notes);
+  const history = ui.data.events.filter(event => event.ticketId === ticket.id);
+  $('history').replaceChildren(...history.reverse().map(event => {
+    const li = element('li');
+    const transition = event.from ? ' · ' + event.from + ' → ' + event.to : '';
+    const assignee = event.previousAssignee ? ' · ' + agentName(event.previousAssignee) + ' → ' + agentName(event.assignee) : event.assignee ? ' · ' + agentName(event.assignee) : '';
+    li.append(element('strong',event.action + transition + assignee),element('div',agentName(event.actor) + ' · ' + date(event.at),'muted small'));
+    if (event.comment) li.append(element('div',event.comment));
+    return li;
+  }));
+  const allowed = ui.user.role === 'coordinador' || ticket.assignee === ui.user.id;
+  $('editForm').hidden = !(old || (allowed && ticket.status !== 'Cerrado'));
+  $('acceptVersion').hidden = !old;
+  $('acceptVersion').disabled = !allowed;
+  $('saveEdit').disabled = old || !allowed || ticket.status === 'Cerrado';
+  if (!old) {
+    $('editAction').options[1].hidden = ui.user.role !== 'coordinador' || !open(ticket);
+    if ($('editAction').selectedOptions[0].hidden) $('editAction').value = 'status';
+    fillOptions($('editStatus'),ui.data.transitions[ticket.status],'Selecciona un estado');
+    fillOptions($('editAssignee'),ui.data.users.filter(user => user.role === 'agente' && user.active && user.id !== ticket.assignee),'Selecciona un agente');
+    editFields();
+  }
+}
+function editFields() {
+  const assign = $('editAction').value === 'assign';
+  $('editStatusField').hidden = assign;
+  $('editAssigneeField').hidden = !assign;
+  $('editStatus').required = !assign;
+  $('editAssignee').required = assign;
+  const resolving = !assign && $('editStatus').value === 'Resuelto';
+  $('commentLabel').textContent = resolving ? 'Respuesta de fondo' : 'Comentario (opcional)';
+  $('editComment').required = resolving;
+}
+async function submitEdit(event) {
+  event.preventDefault();
+  const input = Object.fromEntries(new FormData(event.currentTarget));
+  $('editError').textContent = '';
+  $('saveEdit').disabled = true;
+  try {
+    const result = await api('tickets/' + ui.active,{method:'PATCH',data:{...input,version:ui.version}});
+    ui.version = result.ticket.version;
+    event.target.reset();
+    showToast('Cambio guardado en ' + result.ticket.id + '.');
+    await refresh().catch(() => connection(false));
+  } catch (error) {
+    if (error.status === 409 || error.status === 404) await refresh().catch(() => {});
+    $('editError').textContent = error.message;
+  } finally { if (ui.data && $('detailDialog').open) renderDetail(); }
+}
+async function fileAction(action,result,button) {
+  button.disabled = true;
+  result.textContent = '';
+  try { await action(); } catch (error) { result.className = 'error'; result.textContent = error.message; }
+  finally { button.disabled = false; }
+}
+function download(filename,data) {
+  const url = URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));
+  const link = element('a');
+  link.href = url; link.download = filename; link.click();
+  setTimeout(() => URL.revokeObjectURL(url),1000);
+}
+$('loginForm').addEventListener('submit',event => { event.preventDefault(); signIn($('loginId').value,$('loginPassword').value); });
+$('demoLogin').addEventListener('click',() => signIn('coordinador',ui.demoPassword));
+$('connectEndpoint').addEventListener('click',connectEndpoint);
+$('logout').addEventListener('click',() => { api('logout',{method:'POST'}).catch(() => {}); signOut(); });
+$('views').addEventListener('click',event => { if (event.target.dataset.view) switchView(event.target.dataset.view); });
+$('rows').addEventListener('click',event => { if (event.target.dataset.ticket) openDetail(event.target.dataset.ticket); });
+for (const id of ['search','statusFilter','agentFilter']) $(id).addEventListener('input',() => { ui.page = 1; if (ui.data) renderInbox(); });
+for (const [id,delta] of [['previous',-1],['next',1]]) $(id).addEventListener('click',() => { ui.page += delta; renderInbox(); });
+for (const id of ['reportFrom','reportTo']) $(id).addEventListener('input',() => { if (ui.data) renderReport(); });
+$('newTicket').addEventListener('click',() => {
+  if (!ui.data) return;
+  fillOptions($('createForm').elements.channel,ui.data.channels,'Selecciona el canal');
+  fillOptions($('createForm').elements.category,ui.data.categories,'Selecciona la categoría');
+  $('createError').textContent = ''; fieldErrors(); $('createDialog').showModal(); $('customerQuery').focus();
+});
+document.querySelectorAll('[data-close]').forEach(button => button.addEventListener('click',() => $(button.dataset.close).close()));
+$('customerQuery').addEventListener('input',() => { chosenCustomer = null; customerResults(); });
+$('createForm').addEventListener('submit',submitCreate);
+$('editForm').addEventListener('submit',submitEdit);
+$('editAction').addEventListener('change',editFields);
+$('editStatus').addEventListener('change',editFields);
+$('acceptVersion').addEventListener('click',() => { ui.version = findTicket()?.version; $('editError').textContent = ''; renderDetail(); });
+$('importForm').addEventListener('submit',event => {
+  event.preventDefault();
+  const result = $('importResult');
+  fileAction(async () => {
+    const file = $('clientFile').files[0];
+    const value = await api('customers/import',{method:'POST',data:{format:file.name.split('.').at(-1).toLowerCase(),content:await file.text()}});
+    result.className = 'inline-status'; result.textContent = value.count + ' clientes importados.';
+    event.target.reset();
+  },result,event.submitter);
+});
+$('exportBackup').addEventListener('click',event => fileAction(async () => {
+  download('aurora-respaldo-' + day(Date.now()) + '.json', await api('backup'));
+  $('backupResult').className = 'inline-status'; $('backupResult').textContent = 'Respaldo descargado.';
+},$('backupResult'),event.currentTarget));
+$('restoreForm').addEventListener('submit',event => {
+  event.preventDefault();
+  const result = $('backupResult');
+  fileAction(async () => {
+    let backup;
+    try { backup = JSON.parse(await $('restoreFile').files[0].text()); } catch { throw Error('El respaldo no contiene JSON válido.'); }
+    if (!ui.data) throw Error('Espera a que se cargue el estado actual.');
+    const revision = ui.data.revision;
+    if (!confirm('¿Restaurar este respaldo? Se conservará una copia del estado actual y se actualizarán las sesiones conectadas.')) return;
+    await api('restore',{method:'POST',data:{backup,revision,confirmed:true}});
+    result.className = 'inline-status'; result.textContent = 'Respaldo restaurado.';
+    event.target.reset();
+  },result,event.submitter);
+});
+addEventListener('offline',() => { if (ui.token) connection(false); });
+if (location.protocol === 'file:') {
+  $('fileConfig').hidden = false;
+  if (FILE_SERVICE) { $('endpoint').value = FILE_SERVICE; connectEndpoint(); }
+} else loadMeta();
+</script>
+</body>
+</html>
